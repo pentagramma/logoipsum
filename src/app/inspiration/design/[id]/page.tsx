@@ -5,15 +5,15 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { designInspirations } from '@/data/dummy-data';
 import Image from 'next/image';
+import { use } from 'react';
 
 interface PageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }
 
 export default function DesignDetailPage({ params }: PageProps) {
-  const { id } = params;
+  // Unwrap the params Promise using React.use()
+  const { id } = use(params);
   const inspiration = designInspirations.find((item) => item.id === id);
 
   const [pageViews, setPageViews] = useState(0);

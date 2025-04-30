@@ -39,7 +39,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
         </div>
 
         <div className="mb-12">
-          <div className="text-4xl mb-4">{category.icon}</div>
+          {/* <div className="text-4xl mb-4">{category.icon}</div> */}
           <h1 className="section-heading mb-4">{category.title}</h1>
           <p className="section-subheading">{category.description}</p>
         </div>
