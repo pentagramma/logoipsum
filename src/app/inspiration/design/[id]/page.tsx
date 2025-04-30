@@ -1,3 +1,4 @@
+'use client';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -33,7 +34,7 @@ export default function DesignDetailPage({ params }: PageProps) {
         item.id !== id &&
         (item.category === inspiration.category || item.niche === inspiration.niche)
     )
-    .slice(0, 3);
+    .slice(0, 12); // Get 12 items for 3 columns x 4 rows
 
   return (
     <div className="py-10 bg-gray-50">
@@ -59,8 +60,8 @@ export default function DesignDetailPage({ params }: PageProps) {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-10">
-          {/* Left/Main Content */}
-          <div className="lg:w-2/3">
+          {/* Left Content */}
+          <div className="lg:w-1/2 flex flex-col">
             {/* Logo badge */}
             <div className="inline-flex bg-black text-white px-4 py-1 rounded-full text-sm font-semibold mb-4">
               {inspiration.id}
@@ -95,43 +96,45 @@ export default function DesignDetailPage({ params }: PageProps) {
                 </svg>
               </Link>
             </div>
+          </div>
 
-            {/* Desktop screenshot */}
+          {/* Right Content - Image */}
+          <div className="lg:w-1/2">
             <div className="border border-gray-200 rounded-xl overflow-hidden bg-gray-100 mb-8">
               <Image
                 src={inspiration.image}
                 alt={`${inspiration.title} - Desktop view`}
-                width={800}
-                height={450}
+                width={1389}
+                height={665}
                 className="w-full h-auto object-cover"
               />
             </div>
           </div>
+        </div>
 
-          {/* Right Sidebar */}
-          <div className="lg:w-1/3">
-            <div className="sticky top-24">
-              <div className="bg-white p-6 border border-gray-200 rounded-xl shadow-sm">
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div>
-                    <h3 className="text-gray-500 text-xs font-semibold uppercase mb-1">Page Type</h3>
-                    <p className="text-red-500 text-sm font-medium capitalize">{inspiration.category}</p>
-                  </div>
-                  <div>
-                    <h3 className="text-gray-500 text-xs font-semibold uppercase mb-1">Stack</h3>
-                    <p className="text-gray-800 text-sm">{inspiration.stack}</p>
-                  </div>
-                  <div>
-                    <h3 className="text-gray-500 text-xs font-semibold uppercase mb-1">Niche</h3>
-                    <p className="text-gray-800 text-sm">{inspiration.niche}</p>
-                  </div>
+        {/* Right Sidebar */}
+        <div className="lg:w-1/3 lg:ml-auto">
+          <div className="sticky top-24">
+            <div className="bg-white p-6 border border-gray-200 rounded-xl shadow-sm">
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div>
+                  <h3 className="text-gray-500 text-xs font-semibold uppercase mb-1">Page Type</h3>
+                  <p className="text-red-500 text-sm font-medium capitalize">{inspiration.category}</p>
                 </div>
+                <div>
+                  <h3 className="text-gray-500 text-xs font-semibold uppercase mb-1">Stack</h3>
+                  <p className="text-gray-800 text-sm">{inspiration.stack}</p>
+                </div>
+                <div>
+                  <h3 className="text-gray-500 text-xs font-semibold uppercase mb-1">Niche</h3>
+                  <p className="text-gray-800 text-sm">{inspiration.niche}</p>
+                </div>
+              </div>
 
-                {/* Mobile screenshot */}
-                <div className="mb-4">
-                  <div className="aspect-[9/16] max-h-[300px] w-full flex items-center justify-center text-gray-400 bg-gray-100 rounded-xl">
-                    Mobile view
-                  </div>
+              {/* Mobile screenshot */}
+              <div className="mb-4">
+                <div className="aspect-[9/16] max-h-[300px] w-full flex items-center justify-center text-gray-400 bg-gray-100 rounded-xl">
+                  Mobile view
                 </div>
               </div>
             </div>
@@ -144,7 +147,7 @@ export default function DesignDetailPage({ params }: PageProps) {
             <h2 className="text-2xl font-bold text-gray-900 mb-8">More Landing Pages</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {relatedInspirations.map((inspiration) => (
-                <div key={inspiration.id} className="w-[383px] h-[586px] relative">
+                <div key={inspiration.id} className="w-full h-[586px] relative">
                   <Image
                     src={inspiration.image}
                     alt={`${inspiration.title} - Related view`}
