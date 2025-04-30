@@ -6,7 +6,7 @@ export default function NotFound() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center items-center relative overflow-hidden">
+    <div className="min-h-screen bg-opacity-60 flex flex-col justify-center items-center relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(255,255,255,0.1),_rgba(0,0,0,0.05))] opacity-50 -z-10" />
 
