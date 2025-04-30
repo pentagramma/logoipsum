@@ -9,7 +9,7 @@ const logoImage: StaticImageData = Logo;
 
 export default function Header() {
   return (
-    <header className="h-[52px] mt-[80px] border-gray-100 font-inter">
+    <header className="h-[52px] mt-[80px] border-gray-100">
       <div className="flex justify-between items-center max-w-[1170px] mx-auto">
         <Link href="/" className="flex items-center">
           <Image src={logoImage} alt="Logo" width={262.6} height={52} />

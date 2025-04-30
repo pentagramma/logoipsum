@@ -29,7 +29,7 @@ export default function NewsletterSubscribe() {
   const cornerDot = "w-2 h-2 absolute bg-[#711517] rounded-full";
 
   return (
-    <div className="relative w-full font-inter">
+    <div className="relative w-full">
       <div 
         className="bg-[#FFEFEB] p-6 rounded-xl border border-red-300 relative overflow-hidden"
         style={{

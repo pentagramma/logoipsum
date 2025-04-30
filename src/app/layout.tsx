@@ -34,7 +34,7 @@ import type { Metadata } from "next";
   }>) {
     return (
       <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-        <body className={`font-inter ${inter.className}`} suppressHydrationWarning>
+        <body suppressHydrationWarning>
           <ClientBody>
             <BackgroundImage>
               <div className="flex flex-col min-h-screen">
