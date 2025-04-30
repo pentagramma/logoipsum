@@ -79,9 +79,9 @@
                   <p className="text-[hsl(var(--text-light))] mt-2 text-xl">
                     Explore an expertly crafted showcase of top-tier<br /> SaaS landing pages from across the web.<br /> Effortlessly
                     discover design inspiration tailored <br />to your needs using our intuitive{' '}
-                    <Link href="#" className="text-[hsl(var(--brand-red))] underline">
+                    <button className="text-[hsl(var(--brand-red))] underline">
                       filters
-                    </Link>
+                    </button>
                     .
                   </p>
                 </div>
@@ -92,8 +92,7 @@
               <div className="lg:hidden mb-6">
                 <FilterSidebar selectedFilters={selectedFilters} onFilterChange={handleFilterChange} />
               </div>
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h2 className="text-lg font-medium mb-4 text-[hsl(var(--text-dark))]">Design Inspirations</h2>
+              <div className="bg-gray-50 rounded-lg p-6 bg-opacity-65">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                   {filteredInspirations.map((inspiration) => (
                     <div

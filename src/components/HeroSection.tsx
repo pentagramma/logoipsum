@@ -1,6 +1,10 @@
-import Link from 'next/link';
+'use client';
+
+import { useRouter } from 'next/navigation';
 
 export default function HeroSection() {
+  const router = useRouter();
+
   return (
     <section className="py-16 md:py-24 relative overflow-hidden">
       <div className="container-custom text-center">
@@ -11,10 +15,13 @@ export default function HeroSection() {
           Built for creators, by experts—explore proven resources from
         </p>
         <p className="text-[hsl(var(--text-light))] text-2xl max-w-2xl mx-auto">
-        SaaS leaders who know what works.
+          SaaS leaders who know what works.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4 p-2">
-          <Link href="/resources" className="btn-primary flex items-center justify-center gap-2">
+          <button
+            onClick={() => router.push('/resources')}
+            className="btn-primary flex items-center justify-center gap-2"
+          >
             Explore Free Resources
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -29,10 +36,13 @@ export default function HeroSection() {
             >
               <path d="m9 18 6-6-6-6"/>
             </svg>
-          </Link>
-          <Link href="/contact" className="btn-secondary flex items-center justify-center">
+          </button>
+          <button
+            onClick={() => router.push('/contact')}
+            className="btn-secondary flex items-center justify-center"
+          >
             Contact Our Experts
-          </Link>
+          </button>
         </div>
       </div>
       {/* Background pattern will be handled with CSS */}

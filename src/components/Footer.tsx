@@ -1,121 +1,123 @@
-import Link from 'next/link';
+'use client';
+
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Logobnw from "../../public/images/logobnw.png";
 
 export default function Footer() {
+  const router = useRouter();
+
+  const navItems = [
+    { label: "Home", path: "/" },
+    { label: "Inspiration", path: "/inspiration" },
+    { label: "Templates", path: "/templates" },
+    { label: "Component Library", path: "/component-library" },
+  ];
+
+  const pages = [
+    { label: "Landing Page", path: "/landing-page" },
+    { label: "Pricing Plan", path: "/pricing-plan" },
+    { label: "About Page", path: "/about-page" },
+    { label: "Login Page", path: "/login-page" },
+    { label: "Signup Page", path: "/signup-page" },
+    { label: "Not Found Page", path: "/not-found-page" },
+  ];
+
+  const stackLinks = [
+    "Webflow",
+    "Next.js",
+    "Framer",
+    "WordPress",
+    "MERN",
+  ];
+
+  const footerLinks = [
+    { label: "Privacy Policy", path: "#" },
+    { label: "Submit", path: "#" },
+    { label: "Contact Us", path: "#" },
+  ];
+
   return (
-    <footer className="bg-[hsl(var(--footer-bg))] text-white pt-16 pb-8">
-      <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+    <footer className="bg-black text-white py-16">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div>
-            <div className="flex items-center mb-4">
-              <Image src={Logobnw} alt="Logo" width={262.6} height={52} />
+            <div className="mb-4">
+              <Image src={Logobnw} alt="Logo" width={180} height={36} />
             </div>
-            <p className="text-gray-400 text-sm mb-4">
-              Logoipsum is a full-service tech partner specializing in innovative software solutions, AI development, and scalable digital products for businesses.
+            <p className="text-gray-400 text-sm leading-relaxed">
+              <span className='font-semibold text-white'>Logoipsum</span> is a full-service tech partner delivering innovative software solutions, AI development, and scalable digital products for businesses.
             </p>
           </div>
+
+          {/* Links */}
           <div>
-            <h3 className="font-semibold text-white mb-4">LINKS</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="text-gray-400 hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/inspiration" className="text-gray-400 hover:text-white transition-colors">
-                  Inspiration
-                </Link>
-              </li>
-              <li>
-                <Link href="/templates" className="text-gray-400 hover:text-white transition-colors">
-                  Templates
-                </Link>
-              </li>
-              <li>
-                <Link href="/component-library" className="text-gray-400 hover:text-white transition-colors">
-                  Component Library
-                </Link>
-              </li>
+            <h3 className="font-bold text-white mb-6 uppercase">Links</h3>
+            <ul className="space-y-4">
+              {navItems.map(({ label, path }) => (
+                <li key={path}>
+                  <span
+                    onClick={() => router.push(path)}
+                    className="cursor-pointer text-gray-400 hover:text-white transition-colors text-sm"
+                  >
+                    {label}
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
+
+          {/* Pages */}
           <div>
-            <h3 className="font-semibold text-white mb-4">PAGES</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/landing-page" className="text-gray-400 hover:text-white transition-colors">
-                  Landing Page
-                </Link>
-              </li>
-              <li>
-                <Link href="/pricing-plan" className="text-gray-400 hover:text-white transition-colors">
-                  Pricing Plan
-                </Link>
-              </li>
-              <li>
-                <Link href="/about-page" className="text-gray-400 hover:text-white transition-colors">
-                  About Page
-                </Link>
-              </li>
-              <li>
-                <Link href="/login-page" className="text-gray-400 hover:text-white transition-colors">
-                  Login Page
-                </Link>
-              </li>
-              <li>
-                <Link href="/signup-page" className="text-gray-400 hover:text-white transition-colors">
-                  Signup Page
-                </Link>
-              </li>
-              <li>
-                <Link href="/not-found-page" className="text-gray-400 hover:text-white transition-colors">
-                  Not Found Page
-                </Link>
-              </li>
+            <h3 className="font-bold text-white mb-6 uppercase">Pages</h3>
+            <ul className="space-y-4">
+              {pages.map(({ label, path }) => (
+                <li key={path}>
+                  <span
+                    onClick={() => router.push(path)}
+                    className="cursor-pointer text-gray-400 hover:text-white transition-colors text-sm"
+                  >
+                    {label}
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
+
+          {/* Stack */}
           <div>
-            <h3 className="font-semibold text-white mb-4">STACK</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Webflow
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Next.js
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Framer
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  WordPress
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                  MERN
-                </Link>
-              </li>
+            <h3 className="font-bold text-white mb-6 uppercase">Stack</h3>
+            <ul className="space-y-4">
+              {stackLinks.map((label) => (
+                <li key={label}>
+                  <span className="text-gray-400 text-sm">{label}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
-        <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-400 text-sm mb-4 md:mb-0">
-            <span>Privacy Policy</span>
-            <span className="mx-2">|</span>
-            <span>Submit</span>
-            <span className="mx-2">|</span>
-            <span>Contact Us</span>
+
+        {/* Bottom Section */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center border-t border-gray-800 pt-8">
+          <div className="flex gap-6 mb-6 md:mb-0">
+            {footerLinks.map(({ label, path }) => (
+              <span
+                key={label}
+                onClick={() => router.push(path)}
+                className="cursor-pointer text-sm text-gray-400 hover:text-white transition-colors"
+              >
+                {label}
+              </span>
+            ))}
           </div>
-          <div className="text-gray-400 text-sm">
-            Lorem ipsum dolor sit amet consectetur. Diam eget commodo enim nunc integer nolestie amet mauris.
+
+          <div className="flex justify-between w-full md:w-auto items-center">
+            <p className="text-sm text-gray-400 mr-6 md:mr-16">
+              Lorem ipsum dolor sit amet consectetur. Diam eget commodo enim nunc integer molestie amet mauris.
+            </p>
+            <button className="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600 transition-colors text-sm font-medium">
+              Subscribe
+            </button>
           </div>
         </div>
       </div>

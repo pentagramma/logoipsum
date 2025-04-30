@@ -1,12 +1,13 @@
-// components/CategoriesSection.jsx
 'use client';
 
 import CategoryCard from './CategoryCard';
 import { inspirationCategories } from '@/data/dummy-data';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 export default function CategoriesSection() {
+  const router = useRouter();
+
   useEffect(() => {
     console.log(inspirationCategories);
     console.log("inspirationCategories");
@@ -24,7 +25,11 @@ export default function CategoriesSection() {
         {/* Unified grid for all categories */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {inspirationCategories.map((category) => (
-            <Link href={`/inspiration/${category.id}`} key={category.id} className="block">
+            <div
+              key={category.id}
+              onClick={() => router.push(`/inspiration/${category.id}`)}
+              className="block cursor-pointer"
+            >
               <CategoryCard
                 id={category.id}
                 title={category.title}
@@ -32,12 +37,15 @@ export default function CategoriesSection() {
                 icon={category.icon}
                 imageUrl={category.image}
               />
-            </Link>
+            </div>
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <Link href="/inspiration" className="btn-primary inline-flex items-center gap-2">
+          <button
+            onClick={() => router.push('/inspiration')}
+            className="btn-primary inline-flex items-center gap-2"
+          >
             Explore all inspiration
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +60,7 @@ export default function CategoriesSection() {
             >
               <path d="m9 18 6-6-6-6"/>
             </svg>
-          </Link>
+          </button>
         </div>
       </div>
     </section>

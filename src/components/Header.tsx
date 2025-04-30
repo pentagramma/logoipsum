@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Logo from '../../public/images/Logo.png';
 import type { StaticImageData } from 'next/image';
@@ -8,22 +8,36 @@ import type { StaticImageData } from 'next/image';
 const logoImage: StaticImageData = Logo;
 
 export default function Header() {
+  const router = useRouter();
+
   return (
     <header className="h-[52px] mt-[80px] border-gray-100">
       <div className="flex justify-between items-center max-w-[1170px] mx-auto">
-        <Link href="/" className="flex items-center">
+        <div
+          onClick={() => router.push('/')}
+          className="flex items-center cursor-pointer"
+        >
           <Image src={logoImage} alt="Logo" width={262.6} height={52} />
-        </Link>
+        </div>
         <nav className="hidden md:flex items-center space-x-8">
-          <Link href="/" className="text-[hsl(var(--text-dark))] hover:text-[hsl(var(--brand-red))] transition-colors">
+          <div
+            onClick={() => router.push('/')}
+            className="text-[hsl(var(--text-dark))] hover:text-[hsl(var(--brand-red))] transition-colors cursor-pointer"
+          >
             Home
-          </Link>
-          <Link href="/inspiration" className="text-[hsl(var(--text-dark))] hover:text-[hsl(var(--brand-red))] transition-colors">
+          </div>
+          <div
+            onClick={() => router.push('/inspiration')}
+            className="text-[hsl(var(--text-dark))] hover:text-[hsl(var(--brand-red))] transition-colors cursor-pointer"
+          >
             Inspiration
-          </Link>
-          <Link href="/subscribe" className="bg-[hsl(var(--brand-red))] text-white px-4 py-2 rounded-md hover:opacity-90 transition-opacity">
+          </div>
+          <button
+            onClick={() => router.push('/subscribe')}
+            className="bg-[hsl(var(--brand-red))] text-white px-4 py-2 rounded-md hover:opacity-90 transition-opacity"
+          >
             Subscribe
-          </Link>
+          </button>
         </nav>
         <button className="md:hidden">
           <svg
