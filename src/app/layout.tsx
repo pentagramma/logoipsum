@@ -5,7 +5,7 @@ import type { Metadata } from "next";
   import Header from "@/components/Header";
   import Footer from "@/components/Footer";
   import BackgroundImage from "@/components/BackgroundImage";
-  import { Inter } from '@next/font/google';
+  import { Inter } from 'next/font/google';
 
   const inter = Inter({
     subsets: ['latin'],
